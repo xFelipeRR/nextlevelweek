@@ -2,7 +2,11 @@
 const express = require('express')
 const server = express()
 
-const { pageLanding ,pageStudy, pageGiveClasses } = require('./utils/format')
+const { 
+    pageLanding,
+    pageStudy,
+    pageGiveClasses 
+} = require('./pages')
 
 //Configurar nunjucks
 const nunjucks = require('nunjucks')
