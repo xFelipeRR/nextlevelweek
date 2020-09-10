@@ -5,7 +5,8 @@ const server = express()
 const { 
     pageLanding,
     pageStudy,
-    pageGiveClasses 
+    pageGiveClasses,
+    saveClasses
 } = require('./pages')
 
 //Configurar nunjucks
@@ -16,8 +17,10 @@ nunjucks.configure('src/views', { // Definição do caminho
 })
 
 // Inicio e configuração do servidor
-server.
-use(express.static("public")) // Usar a pasta public pelo servidor
+server
+// receber os dados do req.body
+.use(express.urlencoded({ extended: true }))
+.use(express.static("public")) // Usar a pasta public pelo servidor
 
  //Rotas pelo backend
 
@@ -29,5 +32,6 @@ use(express.static("public")) // Usar a pasta public pelo servidor
 .get("/", pageLanding)
 .get("/study", pageStudy)
 .get("/give-classes", pageGiveClasses)
+.post("/save-classes", saveClasses)
 // start do servidor
 .listen(5500)
