@@ -94,7 +94,6 @@ const { subjects, weekdays, getSubject, convertHoursToMinutes } = require('./uti
         let queryString = "?subject=" + req.body.subject
         queryString += "&weekday=" + req.body.weekday[0]
         queryString += "&time=" + req.body.time_from[0]
-
         return res.redirect("/study" + queryString)
         } catch (error) {
             console.log(error)
